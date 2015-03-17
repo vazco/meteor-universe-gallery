@@ -13,12 +13,10 @@ Package.on_use(function (api) {
         'underscore',
         'vazco:universe-core',
         'vazco:universe-core-plugin',
-        'tap:i18n',
         'aldeed:collection2',
         'aldeed:simple-schema',
         'aldeed:autoform@4.2.2',
         'cfs:standard-packages',
-        //'cfs:gridfs',
         'cfs:autoform@2.1.1',
         'vazco:tools-common'
     ], ['client', 'server']);
