@@ -1,4 +1,49 @@
 <template name="universeGalleryEdit">
-    universeGalleryView
+    <div class="js-universeGalleryEdit universeGalleryEdit">
 
+        <input type="hidden" value="{{gallery_id}}" class="js-universeGalleryId" />
+
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#universeGalleryEdit">
+            Edit gallery
+        </button>
+
+        <div class="modal fade" id="universeGalleryEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Edit Gallery</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            {{#each getPhotos}}
+                                <div class="col-sm-2 editingPhoto">
+                                    <a href="{{this.url}}"><img src="{{this.url}}" width="100%" /></a>
+                                    <a href="#" class="js-remove-photo text-danger editingPhoto-remove" data-id="{{this._id}}"><i class="fa fa-times"></i></a>
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            {{#autoForm collection="GalleryFiles" type="insert" id="UniGalleryEditGalleries"}}
+                                <div class="col-md-2">
+                                    <label>File:</label>
+                                </div>
+                                <div class="col-md-8">
+                                    {{> afFieldInput name="fileId" type="cfs-file" collection="GalleryFilesCfs"}}
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-success" type="submit">Add</button>
+                                </div>
+                            {{/autoForm}}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>

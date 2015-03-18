@@ -1,13 +1,22 @@
 <template name="universeGalleryAdd">
-    <div class="js-universeGallery">
-        <input type="hidden" name="{{name}}" class="js-universeGalleryId" /><br />
+    <div class="js-universeGalleryAdd universeGalleryAdd">
+        {{! #if autoform}}
+            {{! > afQuickField name=name class="js-universeGalleryId"}}
+        {{! else}}
+            <input type="hidden" name="{{name}}" id={{id}} class="js-universeGalleryId" />
+        {{! /if}}
 
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Add gallery
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#universeGalleryAdd">
+            {{#if getPhotos.count}}
+                Edit gallery ({{getPhotos.count}} photos)
+            {{else}}
+                Add gallery
+            {{/if}}
+
         </button>
 
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="universeGalleryAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -16,21 +25,22 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-12">
-                                {{#each getPhotos}}
-                                    <a href="{{this.url}}"><img src="{{this.url}}" width="100" /></a>
-                                {{/each}}
-                            </div>
+                            {{#each getPhotos}}
+                                <div class="col-sm-2 addingPhoto">
+                                    <a href="{{this.url}}"><img src="{{this.url}}" width="100%" /></a>
+                                    <a href="#" class="js-remove-photo text-danger addingPhoto-remove" data-id="{{this._id}}"><i class="fa fa-times"></i></a>
+                                </div>
+                            {{/each}}
                         </div>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            {{#autoForm collection="GalleryFilesPrivate" type="insert" id="UniGalleryGalleries"}}
+                            {{#autoForm collection="GalleryFiles" type="insert" id="UniGalleryGalleries"}}
                                 <div class="col-md-2">
                                     <label>File:</label>
                                 </div>
                                 <div class="col-md-8">
-                                    {{> afFieldInput name="fileId" type="cfs-file" collection="GalleryFiles"}}
+                                    {{> afFieldInput name="fileId" type="cfs-file" collection="GalleryFilesCfs"}}
                                 </div>
                                 <div class="col-md-2">
                                     <button class="btn btn-success" type="submit">Add</button>

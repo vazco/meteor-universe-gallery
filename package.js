@@ -18,7 +18,8 @@ Package.on_use(function (api) {
         'aldeed:autoform@4.2.2',
         'cfs:standard-packages',
         'cfs:autoform@2.1.1',
-        'vazco:tools-common'
+        'vazco:tools-common',
+        'mrt:fancybox'
     ], ['client', 'server']);
 
 
@@ -34,7 +35,10 @@ Package.on_use(function (api) {
         'client/add.html',
         'client/add.js',
         'client/edit.html',
-        'client/view.html'
+        'client/edit.js',
+        'client/view.html',
+        'client/view.js',
+        'client/stylesheets/gallery.css'
     //    'client/views/profile.html',
     //    'client/views/profile.js',
     //    'client/stylesheet/profile.css',

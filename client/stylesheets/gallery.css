@@ -1,0 +1,9 @@
+.universeGalleryAdd .addingPhoto, .universeGalleryEdit .editingPhoto{
+    position: relative;
+}
+
+.universeGalleryAdd .addingPhoto .addingPhoto-remove, .universeGalleryEdit .editingPhoto .editingPhoto-remove{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
