@@ -10,7 +10,7 @@ Template.universeGalleryView.helpers({
 });
 
 Template.universeGalleryView.rendered = function () {
-    $(this.find('.universeGalleryView a')).fancybox({
+    $(this.findAll('.universeGalleryView a')).fancybox({
         'transitionIn'	:	'elastic',
         'transitionOut'	:	'elastic',
         'speedIn'		:	600,

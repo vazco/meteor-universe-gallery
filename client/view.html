@@ -2,7 +2,7 @@
 
     <div class="universeGalleryView">
         {{#each getPhotos}}
-            <a href="{{this.url}}"><img src="{{this.url}}" width="100" /></a>
+            <a href="{{this.url}}" rel="gallery_group_{{../gallery_id}}"><img src="{{this.url}}" /></a>
         {{/each}}
     </div>
 

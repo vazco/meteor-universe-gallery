@@ -17,9 +17,9 @@
                     <div class="modal-body">
                         <div class="row">
                             {{#each getPhotos}}
-                                <div class="col-sm-2 editingPhoto">
-                                    <a href="{{this.url}}"><img src="{{this.url}}" width="100%" /></a>
-                                    <a href="#" class="js-remove-photo text-danger editingPhoto-remove" data-id="{{this._id}}"><i class="fa fa-times"></i></a>
+                                <div class="editingPhoto">
+                                    <a href="{{this.url}}"><img src="{{this.url}}" /></a>
+                                    <a href="#" class="js-remove-photo btn btn-xs btn-danger editingPhoto-remove" data-id="{{this._id}}"><i class="fa fa-times"></i></a>
                                 </div>
                             {{/each}}
                         </div>
