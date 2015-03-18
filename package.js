@@ -1,7 +1,9 @@
+'use strict';
+
 Package.describe({
     name: 'vazco:universe-gallery',
     summary: 'Gallery for Universe',
-    version: "0.0.1"
+    version: '0.0.1'
 });
 
 Package.on_use(function (api) {
