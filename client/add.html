@@ -1,22 +1,17 @@
 <template name="universeGalleryAdd">
     <div class="js-universeGalleryAdd universeGalleryAdd">
-        {{! #if autoform}}
-            {{! > afQuickField name=name class="js-universeGalleryId"}}
-        {{! else}}
-            <input type="hidden" name="{{name}}" id={{id}} class="js-universeGalleryId" />
-        {{! /if}}
 
+        {{#unless hide_button}}
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="modal_{{input_id}}">
+                {{#if getPhotos.count}}
+                    Edit gallery ({{getPhotos.count}} photos)
+                {{else}}
+                    Add gallery
+                {{/if}}
+            </button>
+        {{/unless}}
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#universeGalleryAdd">
-            {{#if getPhotos.count}}
-                Edit gallery ({{getPhotos.count}} photos)
-            {{else}}
-                Add gallery
-            {{/if}}
-
-        </button>
-
-        <div class="modal fade" id="universeGalleryAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal_{{input_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -35,7 +30,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            {{#autoForm collection="GalleryFiles" type="insert" id="UniGalleryGalleries"}}
+                            {{#autoForm collection="UniGallery.GalleryFiles" type="insert" id="UniGalleryGalleries" input_id=input_id}}
                                 <div class="col-md-2">
                                     <label>File:</label>
                                 </div>
