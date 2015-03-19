@@ -10,7 +10,7 @@ maintained by [Vazco](http://www.vazco.eu).
 
 
 
-### 1. Create input hidden with unique id. Gallery id will set in this input after adding file.
+### 1. Create input hidden with unique id. Gallery id will be set in value of this input after adding file.
 ```
 <input type="hidden" name="gallery_id" id="uniqueGalleryId" />
 ```
@@ -18,20 +18,20 @@ maintained by [Vazco](http://www.vazco.eu).
 OR
 
 ```
-{{> afQuickField type="hidden" name="gallery_id" id="uniqueGalleryId"}}
+{{> afFieldInput type="hidden" name="gallery_id" id="uniqueGalleryId"}}
 ```
 
 
-### 2. Put this unique Id of input to parameter "input_id". This template need include outside any autoform block. 
+### 2. Put this unique Id of input to parameter "input_id". This template needs to place outside any autoform block.
 
 ```
 {{> universeGalleryAdd input_id="uniqueGalleryId"}}
 ```
 
-### 3. If you would like to add own opening modal button, you have to set "hide_button" param to "true" and create own button.
+### 3. If you would like to add own button to opening modal, you have to set "hide_button" param to "true" and create own button.
 
 ```
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="modal_uniqueGalleryId">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_uniqueGalleryId">
     Add gallery
 </button>
 {{> universeGalleryAdd input_id="uniqueGalleryId" hide_button="true"}}
