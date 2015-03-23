@@ -22,6 +22,7 @@ Package.on_use(function (api) {
         'aldeed:autoform@4.2.2',
         'cfs:standard-packages',
         'cfs:autoform@2.1.1',
+        'cfs:graphicsmagick',
         'vazco:tools-common'
     ], ['client', 'server']);
 

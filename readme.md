@@ -90,3 +90,12 @@ UniGallery.GalleryFilesCfs.allow({
     }
 });
 ```
+
+### 8. If you want you could set thumb size:
+
+```
+UniGallery.config({
+    thumbWidth: 200,
+    thumbHeight: 200
+});
+```

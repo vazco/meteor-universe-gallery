@@ -4,6 +4,11 @@
 
 UniGallery = new UniPlugin('UniGallery');
 
+//default configs
+
+UniGallery.thumbWidth = 200;
+UniGallery.thumbHeight = 200;
+
 
 UniGallery.getGalleryFiles = function (gallery_id){
     var gallery = UniGallery.Galleries.findOne(gallery_id);
@@ -34,4 +39,14 @@ UniGallery.removeFileFromGallery = function (gallery_id, file_cfs_id) {
     });
 
     return true;
+};
+
+UniGallery.config = function (config) {
+    if(config.thumbWidth){
+        this.thumbWidth  = config.thumbWidth;
+    }
+
+    if(config.thumbHeight){
+        this.thumbHeight  = config.thumbHeight;
+    }
 };

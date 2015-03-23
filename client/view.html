@@ -1,7 +1,8 @@
 <template name="universeGalleryView">
     <div class="universeGalleryView">
         {{#each getPhotos}}
-            <div class="universeGalleryViewItem pull-left mas">
+            <div class="universeGalleryViewItem pull-left mas"
+                 style="width:{{getThumbWidth}}px; height:{{getThumbHeight}}px; line-height: {{getThumbHeight}}px;">
                 <img src="{{this.url store="GalleryFilesCfsThumbs"}}" />
                 <div class="mask">
                     <p>

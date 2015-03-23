@@ -34,8 +34,20 @@ AutoForm.addHooks(['UniGalleryEditGalleries'], {
         var parent_template = UniUtils.getParentTemplateInstance('universeGalleryEdit', template);
         var gallery_id = parent_template.gallery_id.get();
         var file_tmp_id = result;
+        var gallery;
 
-        if(gallery_id) {
+        if(!gallery_id){
+            return false;
+        }
+
+        gallery = UniGallery.Galleries.findOne(gallery_id, {fields: {_id: 1}});
+
+        if(!gallery){
+            UniGallery.Galleries.insert({
+                _id: gallery_id,
+                files_tmp: [file_tmp_id]
+            });
+        }else{
             UniGallery.Galleries.update(gallery_id, {
                 $push: {files_tmp: file_tmp_id}
             });
