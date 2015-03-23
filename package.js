@@ -12,25 +12,24 @@ Package.on_use(function (api) {
     api.use([
         'check',
         'templating',
+        'less',
         'underscore',
         'vazco:universe-core',
         'vazco:universe-core-plugin',
         'aldeed:collection2',
         'aldeed:simple-schema',
+        'matb33:collection-hooks',
         'aldeed:autoform@4.2.2',
         'cfs:standard-packages',
         'cfs:autoform@2.1.1',
-        'vazco:tools-common',
-        'mrt:fancybox'
+        'vazco:tools-common'
     ], ['client', 'server']);
 
 
-
-    //api.add_files(['plugin.js']);
-
     api.add_files([
         'UniGallery.js',
-        'lib/collections.js'
+        'lib/collections.js',
+        'lib/hooks.js'
     ]);
 
     api.add_files([
@@ -40,22 +39,10 @@ Package.on_use(function (api) {
         'client/edit.js',
         'client/view.html',
         'client/view.js',
-        'client/stylesheets/gallery.css'
-    //    'client/views/profile.html',
-    //    'client/views/profile.js',
-    //    'client/stylesheet/profile.css',
-    //    'client/views/report.html',
-    //    'client/views/report.js',
-    //    'client/views/settings.html',
-    //    'client/views/settings.js',
-    //    'client/views/friends.html',
-    //    'client/views/friends.js'
+        'vendors/lightbox.css',
+        'vendors/lightbox.min.js',
+        'client/stylesheets/gallery.less'
     ], 'client');
-    //
-    //api.add_files([
-    //    'server/publications.js',
-    //    'server/methods.js'
-    //], 'server');
 
     api.export('UniGallery');
 });

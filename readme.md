@@ -48,3 +48,45 @@ OR
 ```
 {{> universeGalleryView gallery_id=gallery_id}}
 ```
+
+### 6. You need create publications like this:
+
+```
+Meteor.publish(null, function () {
+    return [
+        UniGallery.Galleries.find(),
+        UniGallery.GalleryFilesCfs.find()
+    ];
+});
+```
+
+### 7. You need create access like this:
+
+```
+UniGallery.Galleries.allow({
+    insert: function () {
+        return true;
+    },
+    update: function () {
+        return true;
+    },
+    remove: function () {
+        return true;
+    }
+});
+
+UniGallery.GalleryFilesCfs.allow({
+    insert: function () {
+        return true;
+    },
+    update: function () {
+        return true;
+    },
+    remove: function () {
+        return true;
+    },
+    download: function () {
+        return true;
+    }
+});
+```

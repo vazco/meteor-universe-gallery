@@ -15,10 +15,10 @@ Template.universeGalleryAdd.helpers({
 });
 
 Template.universeGalleryAdd.events({
-    'change input.cfsaf-hidden': function (e, template) {
-        var $form = $(template.find('form'));
-        $form.submit();
-    },
+    //'change input.cfsaf-hidden': function (e, template) {
+    //    var $form = $(template.find('form'));
+    //    $form.submit();
+    //},
     'click .js-remove-photo': function (e, template) {
         var $el = $(e.target);
         var gallery_id = template.gallery_id.get();
@@ -34,11 +34,11 @@ AutoForm.addHooks(['UniGalleryGalleries'], {
         var gallery_id = parent_template.gallery_id.get();
         var input_id = template.data.input_id;
         var $input_gallery_id = $('input#'+input_id);
-        var file_id = result;
+        var file_tmp_id = result;
 
         if(!gallery_id){
             UniGallery.Galleries.insert({
-                files: [file_id]
+                files_tmp: [file_tmp_id]
             }, function (error, result) {
                 gallery_id = result;
                 parent_template.gallery_id.set(gallery_id);
@@ -46,7 +46,7 @@ AutoForm.addHooks(['UniGalleryGalleries'], {
             });
         }else{
             UniGallery.Galleries.update(gallery_id, {
-                $push: {files: file_id}
+                $push: {files_tmp: file_tmp_id}
             });
         }
     }

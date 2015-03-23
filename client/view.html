@@ -1,9 +1,16 @@
 <template name="universeGalleryView">
-
     <div class="universeGalleryView">
         {{#each getPhotos}}
-            <a href="{{this.url}}" rel="gallery_group_{{../gallery_id}}"><img src="{{this.url}}" /></a>
+            <div class="universeGalleryViewItem pull-left mas">
+                <img src="{{this.url store="GalleryFilesCfsThumbs"}}" />
+                <div class="mask">
+                    <p>
+                        <a href="{{this.url}}" data-lightbox="gallery_{{../gallery_id}}">
+                            <i class="fa fa-search-plus fa-2x"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
         {{/each}}
     </div>
-
 </template>
