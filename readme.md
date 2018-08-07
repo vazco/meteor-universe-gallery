@@ -1,4 +1,14 @@
-# Universe Gallery
+<h1 align="center">
+    <a href="https://github.com/vazco">vazco</a>/Universe Gallery
+</h1>
+
+&nbsp;
+
+<h3 align="center">
+  -- Abandonware. This package is deprecated! --
+</h3>
+
+&nbsp;
 
 Content Management System for Universe Framework
 
@@ -99,3 +109,9 @@ UniGallery.config({
     thumbHeight: 200
 });
 ```
+
+### License
+
+<img src="https://vazco.eu/banner.png" align="right">
+
+**Like every package maintained by [Vazco](https://vazco.eu/), Universe Gallery is [MIT licensed](https://github.com/vazco/uniforms/blob/master/LICENSE).**
